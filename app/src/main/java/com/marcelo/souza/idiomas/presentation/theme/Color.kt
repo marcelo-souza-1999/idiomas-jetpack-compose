@@ -1,4 +1,4 @@
-package com.marcelo.souza.idiomas.ui.theme
+package com.marcelo.souza.idiomas.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
