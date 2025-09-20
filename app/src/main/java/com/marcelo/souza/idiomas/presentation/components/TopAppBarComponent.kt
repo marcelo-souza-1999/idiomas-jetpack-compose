@@ -31,6 +31,9 @@ import com.marcelo.souza.idiomas.presentation.theme.Blue900
 import com.marcelo.souza.idiomas.presentation.theme.LanguagesTheme
 import com.marcelo.souza.idiomas.presentation.theme.TypographyTitle
 import com.marcelo.souza.idiomas.presentation.theme.White
+import com.marcelo.souza.idiomas.utils.ENGLISH
+import com.marcelo.souza.idiomas.utils.PORTUGUESE
+import com.marcelo.souza.idiomas.utils.SPANISH
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -120,9 +123,9 @@ sealed class LanguageOption(
     val label: String,
     val iconRes: Int
 ) {
-    object Portuguese : LanguageOption("Português", R.drawable.brasil)
-    object English : LanguageOption("Inglês", R.drawable.eua)
-    object Spanish : LanguageOption("Espanhol", R.drawable.espanha)
+    object Portuguese : LanguageOption(PORTUGUESE, R.drawable.brasil)
+    object English : LanguageOption(ENGLISH, R.drawable.eua)
+    object Spanish : LanguageOption(SPANISH, R.drawable.espanha)
 
     companion object {
         val all = listOf(Portuguese, English, Spanish)

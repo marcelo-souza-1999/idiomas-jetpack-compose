@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Idiomas</string>
+
+    <string name="language">Español</string>
+    <string name="description">Mi nombre es Marcelo Souza, vivo en Brasil y soy desarrollador de Android.</string>
+
+    <string name="toast_error_get_language">Error al guardar el idioma</string>
+    <string name="toast_error_save_language">Error al guardar el idioma</string>
+    <string name="toast_success_save_language">Idioma guardado correctamente</string>
+</resources>

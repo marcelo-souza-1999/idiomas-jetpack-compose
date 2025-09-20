@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Idiomas</string>
-    <string name="language">Português (BR)</string>
+
+    <string name="language">Português</string>
     <string name="description">Meu nome é Marcelo Souza, eu moro no Brasil e sou desenvolvedor Android.</string>
+
+    <string name="toast_error_get_language">Erro ao pegar idioma salvo</string>
+    <string name="toast_error_save_language">Erro ao salvar idioma</string>
+    <string name="toast_success_save_language">Idioma salvo com sucesso</string>
 </resources>
