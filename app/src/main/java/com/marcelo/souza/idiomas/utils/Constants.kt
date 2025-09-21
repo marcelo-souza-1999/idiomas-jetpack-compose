@@ -10,6 +10,6 @@ const val PORTUGUESE = "Português"
 const val ENGLISH = "Inglês"
 const val SPANISH = "Espanhol"
 
-val LOCALE_PORTUGUESE = Locale("pt")
-val LOCALE_ENGLISH = Locale("en")
-val LOCALE_SPANISH = Locale("es")
+val LOCALE_PORTUGUESE: Locale = Locale.forLanguageTag("pt")
+val LOCALE_ENGLISH: Locale = Locale.forLanguageTag("en")
+val LOCALE_SPANISH: Locale = Locale.forLanguageTag("es")
