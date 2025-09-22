@@ -56,5 +56,4 @@ jobs:
           target: default
           arch: x86_64
           profile: Nexus 5
-          emulator-build: 11076930
           script: ./gradlew executeScreenshotTests
