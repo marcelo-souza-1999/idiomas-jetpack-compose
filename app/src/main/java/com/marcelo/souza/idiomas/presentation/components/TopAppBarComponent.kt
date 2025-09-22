@@ -85,22 +85,25 @@ fun TopAppBar(
                 Icon(
                     imageVector = Icons.Rounded.Menu,
                     tint = White,
-                    contentDescription = null
+                    contentDescription = "Menu"
                 )
             }
 
             DropdownMenu(
                 expanded = isMenuOpen,
                 onDismissRequest = { isMenuOpen = false },
-                modifier = Modifier.width(dimension.width200)
+                modifier = Modifier
+                    .testTag("dropdownMenu")
+                    .width(dimension.width200)
             ) {
                 LanguageOption.all.forEach { option ->
                     DropdownMenuItem(
+                        modifier = Modifier.testTag("menuItem_${option.label}"),
                         text = { Text(option.label) },
                         leadingIcon = {
                             Image(
                                 painter = painterResource(option.iconRes),
-                                contentDescription = option.label,
+                                contentDescription = null,
                                 modifier = Modifier.size(dimension.size30)
                             )
                         },

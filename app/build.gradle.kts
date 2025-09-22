@@ -6,6 +6,8 @@ plugins {
     alias(libs.plugins.detekt)
 }
 
+apply(plugin = "shot")
+
 apply(from = "../config/detekt/detekt.gradle")
 
 android {
@@ -19,7 +21,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.karumi.shot.ShotTestRunner"
     }
 
     buildTypes {
@@ -46,6 +48,19 @@ android {
     buildFeatures {
         compose = true
     }
+
+    packaging {
+        resources {
+            excludes += listOf("META-INF/LICENSE.md", "META-INF/LICENSE-notice.md")
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            force("com.google.errorprone:error_prone_annotations:2.36.0")
+        }
+    }
+
 }
 
 dependencies {
@@ -67,6 +82,8 @@ dependencies {
     testImplementation(libs.coroutines.test)
     testImplementation(libs.mockk.io)
     testImplementation(libs.mockk.android)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.androidx.test.core)
 
     androidTestImplementation(libs.bundles.koin.test)
     androidTestImplementation(libs.androidx.junit)
@@ -75,6 +92,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     androidTestImplementation(libs.mockk.io)
     androidTestImplementation(libs.mockk.android)
+    androidTestImplementation(libs.shot.android)
 
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
