@@ -1,28 +1,35 @@
 [versions]
-agp = "8.10.0"
-kotlin = "2.0.21"
-coreKtx = "1.16.0"
-google-ksp = "2.0.20-1.0.24"
-coroutines = "1.8.1"
-koin = "3.5.6"
-koin-annotations = "1.3.1"
-datastore = "1.1.6"
+agp = "8.13.0"
+kotlin = "2.2.20"
+coreKtx = "1.17.0"
+google-ksp = "2.2.20-2.0.3"
+coroutines = "1.10.2"
+koin = "4.1.1"
+koin-annotations = "2.1.0"
+datastore = "1.1.7"
 constraintlayoutCompose = "1.1.1"
 junit = "4.13.2"
-mockk = "1.13.12"
-mockk-android = "1.13.12"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.9.0"
-activityCompose = "1.10.1"
-composeBom = "2025.05.00"
-detekt = "1.23.6"
+mockk = "1.14.5"
+mockk-android = "1.14.5"
+junitVersion = "1.3.0"
+espressoCore = "3.7.0"
+robolectric = "4.16"
+shot = "6.1.0"
+androidxTestCore = "1.7.0"
+lifecycleRuntimeKtx = "2.9.4"
+activityCompose = "1.11.0"
+composeBom = "2025.09.00"
+detekt = "1.23.8"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+shot = { module = "com.karumi:shot", version.ref = "shot" }
+shot-android = { group = "com.karumi", name = "shot-android", version.ref = "shot" }
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidxTestCore" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -57,3 +64,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 google-ksp = { id = "com.google.devtools.ksp", version.ref = "google-ksp" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+shot = { id = "com.karumi.shot", version.ref = "shot" }

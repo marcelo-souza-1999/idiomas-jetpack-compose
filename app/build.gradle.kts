@@ -6,20 +6,22 @@ plugins {
     alias(libs.plugins.detekt)
 }
 
+apply(plugin = "shot")
+
 apply(from = "../config/detekt/detekt.gradle")
 
 android {
     namespace = "com.marcelo.souza.idiomas"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.marcelo.souza.idiomas"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.karumi.shot.ShotTestRunner"
     }
 
     buildTypes {
@@ -32,26 +34,38 @@ android {
         }
     }
 
-    android.applicationVariants.configureEach {
-        val variantName = name
-
-        kotlin.sourceSets {
-            getByName(variantName) {
-                kotlin.srcDir("build/generated/ksp/$variantName/kotlin")
-            }
-        }
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_21.toString()
+
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+        }
     }
+
     buildFeatures {
         compose = true
     }
+
+    ksp {
+        arg("KOIN_DEFAULT_MODULE", "true")
+        arg("KOIN_CONFIG_CHECK", "true")
+    }
+
+    packaging {
+        resources {
+            excludes += listOf("META-INF/LICENSE.md", "META-INF/LICENSE-notice.md")
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            force("com.google.errorprone:error_prone_annotations:2.36.0")
+        }
+    }
+
 }
 
 dependencies {
@@ -73,6 +87,8 @@ dependencies {
     testImplementation(libs.coroutines.test)
     testImplementation(libs.mockk.io)
     testImplementation(libs.mockk.android)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.androidx.test.core)
 
     androidTestImplementation(libs.bundles.koin.test)
     androidTestImplementation(libs.androidx.junit)
@@ -81,6 +97,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     androidTestImplementation(libs.mockk.io)
     androidTestImplementation(libs.mockk.android)
+    androidTestImplementation(libs.shot.android)
 
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
