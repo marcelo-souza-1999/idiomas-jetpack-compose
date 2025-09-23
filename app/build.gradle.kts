@@ -49,6 +49,11 @@ android {
         compose = true
     }
 
+    ksp {
+        arg("KOIN_DEFAULT_MODULE", "true")
+        arg("KOIN_CONFIG_CHECK", "true")
+    }
+
     packaging {
         resources {
             excludes += listOf("META-INF/LICENSE.md", "META-INF/LICENSE-notice.md")
