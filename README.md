@@ -94,10 +94,10 @@ que o código seja testado e validado automaticamente a cada push ou pull reques
 Aqui estão algumas capturas de tela do aplicativo:
 
 <p align="center">  
-    <img src="imgs/first.jpeg" width="600"/>  
-    <img src="imgs/second.png" width="600"/>  
-    <img src="imgs/third.png" width="600"/>  
-    <img src="imgs/four.png" width="600"/>  
+    <img src="imgs/first.jpeg" width="200"/>  
+    <img src="imgs/second.png" width="200"/>  
+    <img src="imgs/third.png" width="200"/>  
+    <img src="imgs/four.png" width="200"/>  
 </p>  
 
 ## 📧 Contato
